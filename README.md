@@ -22,16 +22,16 @@ This project demonstrates my skills in Python, including:
 
 1. Clone the repository to your local machine.
    ```bash
-git clone https://github.com/your-username/todo-list-python.git
-```
+   git clone https://github.com/your-username/todo-list-python.git
+   ```
 2. Navigate to the project directory.
    ```bash
-cd todo-list-python
-```
+   cd todo-list-python
+   ```
 3. Run the Python script using Python 3.
-```bash
-python todo_list.py
-```
+   ```bash
+   python todo_list.py
+   ```
 5. Follow the interactive prompts to add, remove, and view tasks.
 
 ## Future Improvements
@@ -39,4 +39,4 @@ python todo_list.py
 * Saving tasks to a file for persistence across program runs.
 * Adding a graphical user interface (GUI) for a more user-friendly experience.
 ## License
-This project is licensed under the [MIT License]([https://www.google.com](https://opensource.org/licenses/MIT). This means you are free to use, modify, and distribute the code, but you must include the original license in any copies or significant modifications.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). This means you are free to use, modify, and distribute the code, but you must include the original license in any copies or significant modifications.
