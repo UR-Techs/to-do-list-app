@@ -12,7 +12,13 @@ def opt_list():
 def add_task():
     """Function to add a task"""
     new_task = input("Please enter the task to add to your To-Do List: ")
-    tasks.append(new_task)
+    tasks.append(new_task )
+#saving the added task in the file
+    task_data = open('To_Do_list_Data.txt','a')
+    task_data.write(new_task + "\n")
+    task_data.close()
+
+    
     print(f"✅ '{new_task}' has been added to your To-Do List.")
     print("\n📌 Your To-Do List:")
     for i, task in enumerate(tasks, 1):  # Numbering tasks
@@ -60,6 +66,7 @@ def cond_logic():
             user_input = int(input("Enter your choice: "))
 
             if user_input == 1:
+                display_tasks()
                 add_task()
             elif user_input == 2:
                 remove_task()
