@@ -1,5 +1,5 @@
-# Initiating a list for tasks
-tasks = []
+#24/2/2025
+import os 
 
 # Defining function for the options to be given to the user
 def opt_list():
@@ -9,20 +9,35 @@ def opt_list():
     print("3. Display all tasks.")
     print("4. Exit the program.")
 
+#22/2/2025 Defining a new function to load data from a text file
+def load_tasks():
+    global tasks
+    tasks = []
+    if os.path.exists('To_Do_list_Data.txt'):
+        with open('To_Do_list_Data.txt','r') as task_data:
+            tasks.extend(task_data.read().splitlines())
+    else:
+        print("⚠️ No saved tasks found.")
+       
+
 def add_task():
     """Function to add a task"""
     new_task = input("Please enter the task to add to your To-Do List: ")
-    tasks.append(new_task )
+    tasks.append(new_task)
 #saving the added task in the file
-    task_data = open('To_Do_list_Data.txt','a')
-    task_data.write(new_task + "\n")
-    task_data.close()
+    if os.path.exists('To_Do_list_Data.txt'):
+        with open('To_Do_list_Data.txt','a') as task_data:
+            task_data.write(new_task + "\n")
+            print(f"✅ '{new_task}' has been added to your To-Do List.")
+
+    else:
+        print("⚠️ No saved tasks found.")
 
     
-    print(f"✅ '{new_task}' has been added to your To-Do List.")
+'''    print(f"✅ '{new_task}' has been added to your To-Do List.")
     print("\n📌 Your To-Do List:")
     for i, task in enumerate(tasks, 1):  # Numbering tasks
-        print(f"{i}. {task}")
+        print(f"{i}. {task}")'''
 
 def remove_task():
     """Function to remove a task"""
@@ -66,12 +81,20 @@ def cond_logic():
             user_input = int(input("Enter your choice: "))
 
             if user_input == 1:
+                #24/2/2025
+                load_tasks()
                 display_tasks()
                 add_task()
+                display_tasks()
             elif user_input == 2:
+                #24/2/2025
+                load_tasks()
                 remove_task()
             elif user_input == 3:
+                #24/2/2025
+                load_tasks()
                 display_tasks()
+                ##display_tasks()
             elif user_input == 4:
                 exit_prog()
                 break
