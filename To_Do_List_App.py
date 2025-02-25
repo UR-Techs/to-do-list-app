@@ -25,14 +25,9 @@ def add_task():
     new_task = input("Please enter the task to add to your To-Do List: ")
     tasks.append(new_task)
 #saving the added task in the file
-    if os.path.exists('To_Do_list_Data.txt'):
-        with open('To_Do_list_Data.txt','a') as task_data:
-            task_data.write(new_task + "\n")
-            print(f"✅ '{new_task}' has been added to your To-Do List.")
-
-    else:
-        print("⚠️ No saved tasks found.")
-
+    with open('To_Do_list_Data.txt','a') as task_data:
+        task_data.write(new_task + "\n")
+        print(f"✅ '{new_task}' has been added to your To-Do List.")
     
 '''    print(f"✅ '{new_task}' has been added to your To-Do List.")
     print("\n📌 Your To-Do List:")
@@ -42,17 +37,19 @@ def add_task():
 def remove_task():
     """Function to remove a task"""
     if tasks:
-        print("\n📌 Your To-Do List:")
-        for i, task in enumerate(tasks, 1):  # Numbering tasks
-            print(f"{i}. {task}")
-        new_task = input("Please enter the task to delete from your To-Do List: ")
-        if new_task in tasks:
-            tasks.remove(new_task)
-            print(f"❌ '{new_task}' has been deleted from your list.")
+        display_tasks()
+        task_to_remove = input("Please enter the task to delete from your To-Do List: ")
+        if task_to_remove in tasks:
+            tasks.remove(task_to_remove)
+            print(f"❌ '{task_to_remove}' has been deleted from your list.")
             if tasks:
-                print("\n📌 Your To-Do List:")
-                for i, task in enumerate(tasks, 1):  # Numbering tasks
-                    print(f"{i}. {task}")
+                display_tasks()
+                #25/2/25 updating the task list after task removal in the file
+                with open('To_Do_list_Data.txt','w') as task_data:
+                    for task in tasks:
+                        task_data.write(task + "\n")
+
+                print("📄 Task list has been updated.")
             else:
                 print("Your task list is now empty.")
         else:
