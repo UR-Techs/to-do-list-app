@@ -53,7 +53,7 @@ def remove_task():
             else:
                 print("Your task list is now empty.")
         else:
-            print(f"⚠️ '{new_task}' is not in your list.")
+            print(f"⚠️ '{task_to_remove}' is not in your list.")
     else:
         print("\n⚠️ Your To-Do List is already empty.")
 
