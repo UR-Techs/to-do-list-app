@@ -22,7 +22,15 @@ def load_tasks():
 
 def add_task():
     """Function to add a task"""
-    new_task = input("Please enter the task to add to your To-Do List: ")
+    new_task = input("Please enter the task to add to your To-Do List: ").strip()
+
+    #4 March 2025
+    #checking if the user input is empty
+    if not new_task:
+        print("⚠️ Task cannot be empty! Please enter a valid task.")
+        return #to exit the function without adding anything
+    #4 March 2025
+    
     tasks.append(new_task)
 #saving the added task in the file
     with open('To_Do_list_Data.txt','a') as task_data:
